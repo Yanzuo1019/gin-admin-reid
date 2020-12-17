@@ -27,13 +27,6 @@ func DeviceStatus(c *gin.Context) {
 	}
 	service.RecordLock.Unlock()
 
-	dev = append(dev, gin.H{
-		"id": 0,
-		"address": "172.19.63.106",
-		"mac": "90-78-41-1B-8B-13",
-		"status": "Offline",
-	})
-
 	c.JSON(200, gin.H{
 		"status": 200,
 		"error_msg": "",

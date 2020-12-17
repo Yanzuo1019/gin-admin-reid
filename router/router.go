@@ -17,7 +17,7 @@ func InitRouter() {
 	r.POST("/Upload", api.Upload)
 
 	network, _ := utils.Config["network"].(map[string]string)
-	addr := network["addr"]
+	//addr := network["addr"]
 	port := network["port"]
-	r.Run(addr + ":" + port)
+	r.Run(":" + port)
 }

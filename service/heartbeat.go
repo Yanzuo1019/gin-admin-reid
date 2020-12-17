@@ -5,6 +5,7 @@ import (
 	"gin-admin-reid/utils"
 	"log"
 	"net"
+	"strings"
 	"sync"
 	"time"
 )
@@ -72,6 +73,7 @@ func handleConnection(conn net.Conn) {
 	for {
 		n, err := conn.Read(buffer)
 		addr := conn.RemoteAddr().String()
+		addr = addr[:strings.Index(addr, ":")]
 
 		if err != nil {
 			log.Println("fail to read from ", addr, ": ", err)
